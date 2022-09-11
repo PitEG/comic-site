@@ -11,7 +11,7 @@ import Chapter from "./Chapter.jsx";
 
 export default function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={"comics"}>
       <Routes>
         <Route index element={<Home/>}>
           </Route>
