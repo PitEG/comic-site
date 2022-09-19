@@ -14,7 +14,7 @@ export default function Navigation() {
         <Navbar.Toggle aria-controls="basic-navbar-nav"/>
         <Navbar.Collapse id="comic-nav">
           <Nav className="me-auto">
-            <LinkContainer to="/comics/example-comic">
+            <LinkContainer to="/example-comic">
               <Nav.Link>example-comic</Nav.Link>
               </LinkContainer>
             </Nav>

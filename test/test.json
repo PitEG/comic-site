@@ -2,13 +2,16 @@
   "name": "who are you people",
   "chapters": [
     {
-      "title": "cookie 1"
+      "title": "cookie 1",
+      "id": "1-cookie-eats-me"
     },
     {
-      "title": "cookie 2"
+      "title": "cookie 2",
+      "id": "2-cookie-eat-you"
     },
     {
-      "title": "cookie 3"
+      "title": "cookie 3",
+      "id": "3-cookie-stops-eating"
     }
   ]
 }
