@@ -1,19 +1,17 @@
-import React from 'react';
+import React from "react";
 import {
   BrowserRouter,
   Routes,
   Route,
-} from 'react-router-dom';
+} from "react-router-dom";
 
-import Home from './Home.jsx';
-import Comic from './Comic.jsx';
-import Chapter from './Chapter.jsx';
-import Navigation from './Navigation.jsx';
+import Home from "./Home.jsx";
+import Comic from "./Comic.jsx";
+import Chapter from "./Chapter.jsx";
 
 export default function App() {
   return (
     <BrowserRouter basename={"comics"}>
-      <Navigation/>
       <Routes>
         <Route index element={<Home/>}>
           </Route>
