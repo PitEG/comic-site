@@ -10,12 +10,14 @@ export default function Navigation() {
   return (
     <Navbar bg="light" expand="lg">
       <Container>
-        <Navbar.Brand> Comic-Site </Navbar.Brand>
+        <LinkContainer to="/">
+          <Navbar.Brand>Comic-Site</Navbar.Brand>
+          </LinkContainer>
         <Navbar.Toggle aria-controls="basic-navbar-nav"/>
         <Navbar.Collapse id="comic-nav">
           <Nav className="me-auto">
-            <LinkContainer to="/example-comic">
-              <Nav.Link>example-comic</Nav.Link>
+            <LinkContainer to="/test-comic">
+              <Nav.Link>test-comic</Nav.Link>
               </LinkContainer>
             </Nav>
           </Navbar.Collapse>

@@ -19,7 +19,8 @@ export default function Comic() {
     const fetchData = async() => {
       try {
         // const response = await fetch("https://jsonplaceholder.typicode.com/posts");
-        const response = await fetch("http://127.0.0.1:8080/test.json");
+        const fetchUrl = `http://localhost:8080/${params.comic}.json`;
+        const response = await fetch(fetchUrl);
         const json = await response.json();
         console.log(json);
         setExists(true);
