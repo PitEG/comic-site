@@ -1,5 +1,4 @@
-import {useParams, useLoaderData} from "react-router-dom";
-import {useState, useEffect} from "react";
+import {useLoaderData} from "react-router-dom";
 
 import {LinkContainer} from 'react-router-bootstrap';
 import Container from 'react-bootstrap/Container';

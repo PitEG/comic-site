@@ -1,8 +1,7 @@
-import {useParams} from "react-router-dom";
-import {useState, useEffect} from "react";
+import {useParams, useLoaderData} from "react-router-dom";
+import {LinkContainer} from 'react-router-bootstrap';
 import Container from 'react-bootstrap/Container';
 import Image from 'react-bootstrap/Image';
-import {LinkContainer} from 'react-router-bootstrap';
 
 export default function Chapter() {
   const params = useParams();
@@ -10,27 +9,10 @@ export default function Chapter() {
   const chapterName = params.chapter
   const comicName = params.comic
 
-  const [pages,setPages] = useState([]);
-  const [prev,setPrev] = useState([]);
-  const [next,setNext] = useState([]);
-
-  useEffect(() => {
-    const fetchData = async() => {
-      try {
-        const fetchUrl = `http://localhost:8080/${params.chapter}.json`;
-        const response = await fetch(fetchUrl);
-        const json = await response.json();
-        // console.log(json);
-        setPages(json["pages"]);
-        setPrev(json["prev"]);
-        setNext(json["next"]);
-      } catch (err) {
-        console.log("error:", err);
-      }
-    };
-
-    fetchData();
-  },[]);
+  const data = useLoaderData();
+  const pages = data["pages"];
+  const prev = data["prev"];
+  const next = data["next"];
 
   const pageImages = pages.map((value,idx) =>
     <li key={idx} id={"p"+idx}>

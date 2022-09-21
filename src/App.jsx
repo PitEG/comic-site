@@ -2,9 +2,6 @@ import React from 'react';
 import {
   createBrowserRouter,
   RouterProvider,
-  BrowserRouter,
-  Routes,
-  Route,
 } from 'react-router-dom';
 
 import Home from './Home.jsx';
@@ -32,6 +29,9 @@ export default function App() {
         {
           path:":comic/:chapter",
           element: <Chapter/>,
+          loader: async ({params}) => {
+            return fetch(`http://localhost:8080/${params.chapter}.json`);
+          },
         }
       ],
     },
