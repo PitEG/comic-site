@@ -1,5 +1,7 @@
 {
   "name": "cookie 1",
+  "prev": "test-chapter2",
+  "next": "",
   "pages": [
     "https://placekitten.com/300/400",
     "https://placekitten.com/300/400",

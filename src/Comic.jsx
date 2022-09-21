@@ -22,7 +22,6 @@ export default function Comic() {
         const fetchUrl = `http://localhost:8080/${params.comic}.json`;
         const response = await fetch(fetchUrl);
         const json = await response.json();
-        console.log(json);
         setExists(true);
         setChapters(json["chapters"]);
       } catch (err) {

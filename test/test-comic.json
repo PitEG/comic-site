@@ -3,15 +3,15 @@
   "chapters": [
     {
       "title": "cookie 1",
-      "id": "1-cookie-eats-me"
+      "id": "test-chapter1"
     },
     {
       "title": "cookie 2",
-      "id": "2-cookie-eat-you"
+      "id": "test-chapter2"
     },
     {
       "title": "cookie 3",
-      "id": "test-chapter"
+      "id": "test-chapter3"
     }
   ]
 }
