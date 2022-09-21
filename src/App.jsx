@@ -1,5 +1,7 @@
 import React from 'react';
 import {
+  createBrowserRouter,
+  RouterProvider,
   BrowserRouter,
   Routes,
   Route,
@@ -8,22 +10,39 @@ import {
 import Home from './Home.jsx';
 import Comic from './Comic.jsx';
 import Chapter from './Chapter.jsx';
-import Navigation from './Navigation.jsx';
+import Root from './Root.jsx';
 
 export default function App() {
+  const router = createBrowserRouter([ 
+    {
+      path: "/",
+      element: <Root/>,
+      children: [
+        {
+          path: "/",
+          element: <Home/>,
+        },
+        {
+          path:":comic",
+          element: <Comic/>,
+          loader: async ({params}) => {
+            return fetch(`http://localhost:8080/${params.comic}.json`);
+          },
+        },
+        {
+          path:":comic/:chapter",
+          element: <Chapter/>,
+        }
+      ],
+    },
+
+  ],{
+    basename: "/comics"
+  });
+
   return (
-    <BrowserRouter basename={"comics"}>
-      <Navigation/>
-      <Routes>
-        <Route index element={<Home/>}>
-          </Route>
-        <Route path="/:comic" element={<Comic/>}>
-          </Route>
-        <Route path="/:comic/:chapter" element={<Chapter/>}>
-          </Route>
-        <Route path="*" element={<h1> PAGE NOT FOUND :( </h1>}>
-          </Route>
-        </Routes>
-      </BrowserRouter>
+    <div>
+    <RouterProvider router={router}></RouterProvider>
+    </div>
   )
 }

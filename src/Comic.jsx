@@ -1,38 +1,12 @@
-import {useParams} from "react-router-dom";
+import {useParams, useLoaderData} from "react-router-dom";
 import {useState, useEffect} from "react";
 
 import {LinkContainer} from 'react-router-bootstrap';
 import Container from 'react-bootstrap/Container';
 
 export default function Comic() {
-  const params = useParams();
-
-  // fetch stuff
-  const [exists, setExists] = useState(false);
-  const [loading, setLoading] = useState(true);
-
-  // chapter list
-  const [chapters, setChapters] = useState([]);
-
-  // fetch info of comic and its chapters 
-  useEffect(() => {
-    const fetchData = async() => {
-      try {
-        // const response = await fetch("https://jsonplaceholder.typicode.com/posts");
-        const fetchUrl = `http://localhost:8080/${params.comic}.json`;
-        const response = await fetch(fetchUrl);
-        const json = await response.json();
-        setExists(true);
-        setChapters(json["chapters"]);
-      } catch (err) {
-        console.log("error:", err);
-        setExists(false);
-      }
-      setLoading(false);
-    };
-
-    fetchData();
-  }, []);
+  const data = useLoaderData();
+  const chapters = data["chapters"];
 
   // list of chapters
   const chapterEntries = chapters.map((value,idx) => 
@@ -47,19 +21,7 @@ export default function Comic() {
 
   return (
     <Container>
-      <div>
-        <h1> COMIC: {params.comic} </h1>
-        <h2>
-          {loading ? "loading" : "done B)"} 
-          </h2>
-        {!loading && 
-          <h2>
-            {exists ? "exists" : "doesn't exists"} 
-            </h2>}
-          <ul>
-            {chapterEntries}
-            </ul>
-        </div>
+      {chapterEntries}
       </Container>
   )
 }

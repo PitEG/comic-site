@@ -39,8 +39,8 @@ export default function Chapter() {
       </li>
   );
 
-  const prevLink = `./${prev}`;
-  const nextLink = `./${next}`;
+  const prevLink = `/${comicName}/${prev}`;
+  const nextLink = `/${comicName}/${next}`;
   const nextPrev = (
     <div>
       <LinkContainer to={prevLink}>
