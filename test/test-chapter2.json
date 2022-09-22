@@ -3,11 +3,10 @@
   "prev": "test-chapter1",
   "next": "test-chapter3",
   "pages": [
-    "https://placekitten.com/300/400",
-    "https://placekitten.com/300/400",
-    "https://placekitten.com/300/400",
-    "https://placekitten.com/300/400",
-    "https://placekitten.com/300/400",
-    "https://placekitten.com/300/400"
+    "https://placekitten.com/600/800",
+    "https://placekitten.com/600/800",
+    "https://placekitten.com/600/800",
+    "https://placekitten.com/600/800",
+    "https://placekitten.com/600/800"
   ]
 }

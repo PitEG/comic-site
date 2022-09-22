@@ -8,6 +8,7 @@ import Home from './Home.jsx';
 import Comic from './Comic.jsx';
 import Chapter from './Chapter.jsx';
 import Root from './Root.jsx';
+import ErrorPage from './ErrorPage.jsx';
 
 export default function App() {
   const router = createBrowserRouter([ 
@@ -22,6 +23,7 @@ export default function App() {
         {
           path:":comic",
           element: <Comic/>,
+          errorElement: <ErrorPage/>,
           loader: async ({params}) => {
             return fetch(`http://localhost:8080/${params.comic}.json`);
           },
@@ -29,6 +31,7 @@ export default function App() {
         {
           path:":comic/:chapter",
           element: <Chapter/>,
+          errorElement: <ErrorPage/>,
           loader: async ({params}) => {
             return fetch(`http://localhost:8080/${params.chapter}.json`);
           },

@@ -2,6 +2,7 @@ import {useParams, useLoaderData} from "react-router-dom";
 import {LinkContainer} from 'react-router-bootstrap';
 import Container from 'react-bootstrap/Container';
 import Image from 'react-bootstrap/Image';
+import Button from 'react-bootstrap/Button';
 
 export default function Chapter() {
   const params = useParams();
@@ -15,32 +16,29 @@ export default function Chapter() {
   const next = data["next"];
 
   const pageImages = pages.map((value,idx) =>
-    <li key={idx} id={"p"+idx}>
-      <Image src={value}>
-        </Image>
-      </li>
+    <Container key={idx} id={"p"+idx}>
+      <Image src={value}></Image>
+      </Container>
   );
 
   const prevLink = `/${comicName}/${prev}`;
   const nextLink = `/${comicName}/${next}`;
   const nextPrev = (
-    <div>
+    <Container>
       <LinkContainer to={prevLink}>
-        <a>prev</a>
+        <Button>prev</Button>
         </LinkContainer>
       <LinkContainer to={nextLink}>
-        <a>next</a>
+        <Button>next</Button>
         </LinkContainer>
-    </div>
+    </Container>
   )
 
   return (
     <Container>
       <h1> COMIC: {comicName} || CHAPTER: {chapterName} </h1>
       {nextPrev}
-      <ul>
-        {pageImages}
-        </ul>
+      {pageImages}
       {nextPrev}
       </Container>
   )
