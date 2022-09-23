@@ -1,8 +1,11 @@
 import {useParams, useLoaderData} from "react-router-dom";
 import {LinkContainer} from 'react-router-bootstrap';
+
 import Container from 'react-bootstrap/Container';
 import Image from 'react-bootstrap/Image';
 import Button from 'react-bootstrap/Button';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 export default function Chapter() {
   const params = useParams();
@@ -16,15 +19,17 @@ export default function Chapter() {
   const next = data["next"];
 
   const pageImages = pages.map((value,idx) =>
-    <Container key={idx} id={"p"+idx}>
-      <Image src={value}></Image>
-      </Container>
+    <div key={idx} id={"p"+idx} className="text-center min-vh-100">
+      <a href={"#p"+(idx+1)}>
+        <Image fluid={true} src={value} className="col-12"></Image>
+        </a>
+      </div>
   );
 
   const prevLink = `/${comicName}/${prev}`;
   const nextLink = `/${comicName}/${next}`;
   const nextPrev = (
-    <Container>
+    <Container className="text-center">
       <LinkContainer to={prevLink}>
         <Button>prev</Button>
         </LinkContainer>
@@ -38,7 +43,11 @@ export default function Chapter() {
     <Container>
       <h1> COMIC: {comicName} || CHAPTER: {chapterName} </h1>
       {nextPrev}
-      {pageImages}
+      <Row>
+        <Col sm={12}>
+          {pageImages}
+          </Col>
+        </Row>
       {nextPrev}
       </Container>
   )
