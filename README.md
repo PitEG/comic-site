@@ -68,3 +68,13 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+## Docker Scripts
+
+### `sudo docker build -t comic-site .`
+
+This builds the image to use for later. It is a static site that just serves as an interface and doesn't require a volume
+
+### `sudo docker run --name comic-site -d -p 8001:80 comic-site`
+
+You can set the port to anything you want, it's 8001 in the example.
