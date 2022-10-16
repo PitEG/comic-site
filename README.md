@@ -71,10 +71,10 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 ## Docker Scripts
 
-### `sudo docker build -t comic-site .`
+### `sudo docker build -t comics .`
 
 This builds the image to use for later. It is a static site that just serves as an interface and doesn't require a volume
 
-### `sudo docker run --name comic-site -d -p 8001:80 comic-site`
+### `sudo docker run --name comic-site -d -p 8001:80 comics`
 
-You can set the port to anything you want, it's 8001 in the example.
+The port and image name can be whatever you want it to be. In the example, it's `8001` and `comics` respectively.
